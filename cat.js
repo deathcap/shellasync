@@ -2,12 +2,8 @@
 
 const fs = require('fs');
 
-function logCB(err, data) {
-  console.log(err, data);
-}
-
 function cat(paths, cb) {
-  if (!cb) cb = logCB;
+  if (!cb) cb = require('./defaultcb');
   if (!Array.isArray(paths)) paths = [paths];
   const datas = [];
   datas.length = paths.length;
