@@ -2,8 +2,12 @@
 
 const fs = require('fs');
 
+function defaultCB(err, data) {
+  console.log(err, data);
+}
+
 function cat(paths, cb) {
-  if (!cb) cb = require('./defaultcb');
+  if (!cb) cb = defaultCB;
   if (!Array.isArray(paths)) paths = [paths];
   const datas = [];
   datas.length = paths.length;
@@ -24,20 +28,57 @@ function cat(paths, cb) {
 }
 
 function readlink(path, cb) {
-  if (!cb) cb = require('./defaultcb');
+  if (!cb) cb = defaultCB;
   fs.readlink(path, cb);
 }
 
 function chmod(path, mode, cb) {
-  if (!cb) cb = require('./defaultcb');
+  if (!cb) cb = defaultCB;
 
   fs.chmod(path, mode, cb);
 }
 
 function chown(path, uid, gid, cb) {
-  if (!cb) cb = require('./defaultcb');
+  if (!cb) cb = defaultCB;
 
   fs.chown(path, uid, gid, cb);
+}
+
+
+function ls(path, cb) {
+  if (!cb) cb = defaultCB;
+
+  fs.readdir(path, cb);
+}
+
+function mv(oldPath, newPath, cb) {
+  if (!cb) cb = defaultCB;
+
+  fs.rename(oldPath, newPath, cb);
+}
+
+function rmdir(path, cb) {
+  if (!cb) cb = defaultCB;
+  
+  fs.rmdir(path, cb);
+}
+
+function stat(path, cb) {
+  if (!cb) cb = defaultCB;
+
+  fs.lstat(path, cb);
+}
+
+function ln(path, target, cb) {
+  if (!cb) cb = defaultCB;
+
+  fs.symlink(target, path, cb);
+}
+
+function rm(path, cb) {
+  if (!cb) cb = defaultCB;
+
+  fs.unlink(path, cb);
 }
 
 module.exports = {
@@ -45,4 +86,10 @@ module.exports = {
   readlink: readlink,
   chmod: chmod,
   chown: chown,
+  ls: ls,
+  mv: mv,
+  rmdir: rmdir,
+  stat: stat,
+  ln: ln,
+  rm: rm,
 };
