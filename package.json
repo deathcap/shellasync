@@ -1,7 +1,7 @@
 {
   "name": "shellasync",
   "description": "asynchronous shell-like commands using Node.js fs API",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "shellasync.js",
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
     "ln",
     "rm"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "license": "MIT"
 }
