@@ -4,24 +4,29 @@ Asynchronous shell-like functions using Node.js [fs](https://nodejs.org/api/fs.h
 
 Usage:
 
-    var shell = require('shellasync');
+   require('shellasync/global');
 
 All commands are async and take an optional callback in the last argument.
 If omitted, the default callback will log the results to the console (useful for
 interactive usage). Available commands:
 
-* `shell.cat(paths[, cb])`: read files using `fs.readFile()` as text, concatenate together in order
-* `shell.readlink(path[, cb])`: read symbolic link target using `fs.readlink()`
-* `shell.chmod(path, mode[, cb])`: change file mode permission using `fs.chmod()`
-* `shell.chown(path, uid, gid[, cb])`: change file ownership permission using `fs.chown()`
-* `shell.ls(path[, cb])`: list directory contents using `fs.readdir()`
-* `shell.mv(oldPath, newPath[, cb])`: rename file using `fs.rename()`
-* `shell.rmdir(path[, cb])`: remove directory using `fs.rmdir()`
-* `shell.stat(path[, cb])`: read file statistics using `fs.lstat()`
-* `shell.ln(path, target[, cb)`: create a symbolic link using `fs.symlink()`
-* `shell.rm(path[, cb])`: remove a file using `fs.unlink()`
+* `cat(paths[, cb])`: read files using `fs.readFile()` as text, concatenate together in order
+* `readlink(path[, cb])`: read symbolic link target using `fs.readlink()`
+* `chmod(path, mode[, cb])`: change file mode permission using `fs.chmod()`
+* `chown(path, uid, gid[, cb])`: change file ownership permission using `fs.chown()`
+* `ls(path[, cb])`: list directory contents using `fs.readdir()`
+* `mv(oldPath, newPath[, cb])`: rename file using `fs.rename()`
+* `rmdir(path[, cb])`: remove directory using `fs.rmdir()`
+* `stat(path[, cb])`: read file statistics using `fs.lstat()`
+* `ln(path, target[, cb)`: create a symbolic link using `fs.symlink()`
+* `rm(path[, cb])`: remove a file using `fs.unlink()`
 
-If you want to make the functions available in the global object, you can use `Object.assign(global, require('shellasync'))`.
+By default, the global object is extended, for convenience. Alternatively, each command
+can be accessed on the shellasync object instead:
+
+    var shell = require('shellasync');
+
+    shell.cat(path, cb); // etc.
 
 See also: [shelljs](https://github.com/shelljs/shelljs) - Portable Unix shell commands for Node.js.
 shellasync is inspired by shelljs and the feature request
