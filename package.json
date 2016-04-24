@@ -17,9 +17,12 @@
     "readlink",
     "chmod",
     "chown",
+    "pwd",
+    "cd",
     "ls",
     "mv",
     "rmdir",
+    "mkdir",
     "stat",
     "ln",
     "rm"

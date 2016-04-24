@@ -19,6 +19,7 @@ interactive usage). Available commands:
 * `ls(path[, cb])`: list directory contents using `fs.readdir()`
 * `mv(oldPath, newPath[, cb])`: rename file using `fs.rename()`
 * `rmdir(path[, cb])`: remove directory using `fs.rmdir()`
+* `mkdir(path[, mode][, cb])`: create a directory using `fs.mkdir()`
 * `stat(path[, cb])`: read file statistics using `fs.lstat()`
 * `ln(path, target[, cb)`: create a symbolic link using `fs.symlink()`
 * `rm(path[, cb])`: remove a file using `fs.unlink()`

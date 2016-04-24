@@ -97,6 +97,15 @@ function rmdir(path, cb) {
   fs.rmdir(path, cb);
 }
 
+function mkdir(path, mode, cb) {
+  if (typeof mode === 'function') {
+    cb = mode;
+    fs.mkdir(path, cb || defaultCB);
+  } else {
+    fs.mkdir(path, mode, cb || defaultCB);
+  }
+}
+
 function stat(path, cb) {
   if (!cb) cb = defaultCB;
   path = fixpath(path);
@@ -129,6 +138,7 @@ module.exports = {
   ls: ls,
   mv: mv,
   rmdir: rmdir,
+  mkdir: mkdir,
   stat: stat,
   ln: ln,
   rm: rm,
