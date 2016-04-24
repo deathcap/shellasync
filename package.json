@@ -1,6 +1,6 @@
 {
   "name": "shellasync",
-  "description": "",
+  "description": "asynchronous shell-like commands using Node.js fs API",
   "version": "0.0.1",
   "main": "shellasync.js",
   "repository": {
@@ -8,6 +8,21 @@
     "url": "git@github.com:deathcap/shellasync.git"
   },
   "keywords": [
+    "filesystem",
+    "fs",
+    "async",
+    "shell",
+    "shelljs",
+    "cat",
+    "readlink",
+    "chmod",
+    "chown",
+    "ls",
+    "mv",
+    "rmdir",
+    "stat",
+    "ln",
+    "rm"
   ],
   "dependencies": {
   },
