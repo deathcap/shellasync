@@ -104,10 +104,10 @@ function stat(path, cb) {
   fs.lstat(path, cb);
 }
 
-function ln(path, target, cb) {
+function ln(target, path, cb) {
   if (!cb) cb = defaultCB;
-  path = fixpath(path);
   target = fixpath(target);
+  path = fixpath(path);
 
   fs.symlink(target, path, cb);
 }
