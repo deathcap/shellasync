@@ -44,9 +44,25 @@ function chown(path, uid, gid, cb) {
   fs.chown(path, uid, gid, cb);
 }
 
+function cd(path, cb) {
+  if (!cb) cb = defaultCB;
+
+  if (path === undefined) path = process.env.HOME;
+
+  fs.lstat(path, (err, stats) => {
+    if (err) cb(null, err);
+    process.env.PWD = path;
+    cb(path);
+  });
+}
+
+function pwd() {
+  return process.env.PWD;
+}
 
 function ls(path, cb) {
   if (!cb) cb = defaultCB;
+  if (path === undefined) path = pwd();
 
   fs.readdir(path, cb);
 }
@@ -86,6 +102,8 @@ module.exports = {
   readlink: readlink,
   chmod: chmod,
   chown: chown,
+  pwd: pwd,
+  cd: cd,
   ls: ls,
   mv: mv,
   rmdir: rmdir,
