@@ -4,7 +4,7 @@ Asynchronous shell-like functions using Node.js [fs](https://nodejs.org/api/fs.h
 
 Usage:
 
-   require('shellasync/global');
+    require('shellasync/global');
 
 All commands are async and take an optional callback in the last argument.
 If omitted, the default callback will log the results to the console (useful for
