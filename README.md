@@ -1,0 +1,6 @@
+# shellasync
+
+## License
+
+MIT
+

@@ -1,0 +1,15 @@
+{
+  "name": "shellasync",
+  "description": "",
+  "version": "0.0.1",
+  "main": "shellasync.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:deathcap/shellasync.git"
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+  },
+  "license": "MIT"
+}
